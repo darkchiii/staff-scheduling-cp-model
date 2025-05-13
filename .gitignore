@@ -1,0 +1,48 @@
+# Ignore Python bytecode files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Ignore virtual environment folders
+venv/
+env/
+.venv/
+.idea/
+.vscode/
+
+# Ignore distribution and packaging
+*.egg
+*.egg-info
+dist/
+build/
+*.log
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore pytest cache
+.cache/
+
+# Ignore the Python env or any other dependencies folder
+# e.g. if you use poetry or pipenv instead of venv
+Pipfile.lock
+poetry.lock
+
+# Ignore the database files (if any)
+*.sqlite3
+
+# Ignore IDEs and editor specific files
+.idea/
+.vscode/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore other system files
+*.swp
+*.swo
+
+# Ignore any sensitive configuration files (if exists)
+config.json
