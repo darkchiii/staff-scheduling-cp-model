@@ -62,20 +62,24 @@ The system not only generates the schedules but also provides detailed diagnosti
 **Employee Under-Utilization Detection**
  - Identifies when employees work significantly fewer hours than their availability permits.
 Example:
+```
 Godziny pracy:
 Ola pracuje 21.0h/40h | 52.5% dyspozycji | [za mało godzin]
+```
 
 Example:
+```
 Dzień 1
 Marek pracuje na zmianie 1
 Kasia pracuje na zmianie 1
 [KRYTYCZNY] Braki pracowników na dzień 1 na zmianę 0
 Dostępni, nieprzypisani: ['Ola']
 Poproś o przyjęcie zmiany: ['Ola', 'Kasia 2', 'Jan', 'Zosia', 'Grzegorz', 'Ania', 'Krzysiek']
-
+```
  - Proposes distribution of shifts in case of shortages in the disposition for a given day.
 
 Example:
+```
 Dzień 2
 Ola pracuje na zmianie 1
 Marek pracuje na zmianie 0
@@ -83,7 +87,7 @@ Krzysiek pracuje na zmianie 0
 [KRYTYCZNY] Braki pracowników na dzień 2 na zmianę 1
 Dostępni, nieprzypisani: []
 Poproś o przyjęcie zmiany: ['Kasia', 'Kasia 2', 'Jan', 'Zosia', 'Grzegorz', 'Ania']
-
+```
 
 ### Input Data
 
