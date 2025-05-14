@@ -61,6 +61,7 @@ The system not only generates the schedules but also provides detailed diagnosti
 
 **Employee Under-Utilization Detection**
  - Identifies when employees work significantly fewer hours than their availability permits.
+
 Example:
 ```
 Godziny pracy:
