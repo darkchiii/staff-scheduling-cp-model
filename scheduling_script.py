@@ -427,7 +427,7 @@ if __name__ == "__main__":
     solver.parameters.max_time_in_seconds = 180
     status = solver.Solve(model, solution_printer)
     solution_printer.print_sorted_solutions()
-    solution_printer.get_best_solution()
+    # solution_printer.get_best_solution()
 
     if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
         print("\nPodsumowanie naruszeń:")

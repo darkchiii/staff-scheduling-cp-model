@@ -8,8 +8,6 @@
 
 Employee Shift Scheduler is an advanced shift scheduling system built with Google's OR-Tools constraint programming library. The system optimizes weekly employee schedules based on availability preferences, shift requirements, and various workplace constraints.
 
-![Shift Scheduling Example](https://via.placeholder.com/800x400?text=Shift+Scheduling+System)
-
 ## Features
 
 - **Optimal Schedule Generation**: Creates optimized weekly employee schedules
@@ -21,6 +19,7 @@ Employee Shift Scheduler is an advanced shift scheduling system built with Googl
 - **Coverage Requirements**: Ensures minimum staff coverage for each shift
 - **Solution Visualization**: Detailed output of generated schedules
 - **Multiple Solutions**: Generates and compares alternative schedules
+- **Scheduling Diagnosis**: Analyzes schedules and suggests improvements for under-utilized employees or coverage gaps
 
 ## Problem Description
 
@@ -55,30 +54,36 @@ The system uses constraint programming (CP) to model the scheduling problem:
    - Maximize fulfillment of shift preferences
    - Balance workload across employees
 
-## Requirements
 
-- Python 3.6+
-- Google OR-Tools 9.12.4544
-- datetime (standard library)
-- collections (standard library)
+## Diagnostic Features
 
-## Installation
+The system not only generates the schedules but also provides detailed diagnostics to help improve the shift allocation:
 
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/employee-shift-scheduler.git
-cd employee-shift-scheduler
+**Employee Under-Utilization Detection**
+ - Identifies when employees work significantly fewer hours than their availability permits.
+Example:
+Godziny pracy:
+Ola pracuje 21.0h/40h | 52.5% dyspozycji | [za mało godzin]
 
-# Install required packages
-pip install ortools==9.12.4544
-```
+Example:
+Dzień 1
+Marek pracuje na zmianie 1
+Kasia pracuje na zmianie 1
+[KRYTYCZNY] Braki pracowników na dzień 1 na zmianę 0
+Dostępni, nieprzypisani: ['Ola']
+Poproś o przyjęcie zmiany: ['Ola', 'Kasia 2', 'Jan', 'Zosia', 'Grzegorz', 'Ania', 'Krzysiek']
 
-## Usage
+ - Proposes distribution of shifts in case of shortages in the disposition for a given day.
 
-```bash
-# Run the scheduler with default settings
-python scheduling_script.py
-```
+Example:
+Dzień 2
+Ola pracuje na zmianie 1
+Marek pracuje na zmianie 0
+Krzysiek pracuje na zmianie 0
+[KRYTYCZNY] Braki pracowników na dzień 2 na zmianę 1
+Dostępni, nieprzypisani: []
+Poproś o przyjęcie zmiany: ['Kasia', 'Kasia 2', 'Jan', 'Zosia', 'Grzegorz', 'Ania']
+
 
 ### Input Data
 
@@ -110,6 +115,7 @@ The system generates detailed schedule solutions showing:
 - Any coverage shortages and available employees to fill them
 - Total working hours and utilization percentage for each employee
 - Summary of constraint violations
+
 
 ## Implementation Details
 
@@ -167,4 +173,29 @@ Kasia pracuje 16.0h/20h | 80.0% dyspozycji
 - Import/export functionality for employee data
 - Rolling horizon planning for continuous scheduling
 - Historical data analysis for better preference learning
+
+## Requirements
+
+- Python 3.6+
+- Google OR-Tools 9.12.4544
+- datetime (standard library)
+- collections (standard library)
+
+## Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/darkchiii/employee-shift-scheduler.git
+cd employee-shift-scheduler
+
+# Install required packages
+pip install ortools==9.12.4544
+```
+
+## Usage
+
+```bash
+# Run the scheduler with default settings
+python scheduling_script.py
+```
 
